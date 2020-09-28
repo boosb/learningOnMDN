@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+	  function Person(first, last, age, gender, interests, learn) {
+	    this.name = {
+		  first : first,
+		  last: last
+		}
+		this.age = age;
+		this.gender = gender;
+		this.interests = interests;
+		this.learn = learn;
+		this.bio = function() {
+			let string = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ';
+
+			let partOne = '';
+			if (this.gender === 'Male' || this.gender === 'M' || this.gender=== 'male' || this.gender=== 'm') {
+				partOne += 'He likes ';
+			} else partOne += 'She likes ';
+			string += partOne;
+
+			for (i=0; i < this.interests.length; i++) {
+				if (i === this.interests.length - 1) {
+					string += this.interests[i] + '.';
+				} else if (i === this.interests.length - 2) {
+					string += this.interests[i] + ' and ';
+				} else
+					string += this.interests[i] + ', ';
+			}
+			alert (string);
+		};
+		this.greeting = function() {
+		  alert ('Hi! I\'m ' + this.name.first + '.');
+		};
+		this.study = function() {
+			alert ('I am in ' + this.learn + ' class.');
+		}
+	  };
+	  
+	  let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing'], 'teacher');
+	  let person2 = new Person('Jessica', 'Evans', 16, 'female', ['music', 'snowboarding', 'dancing', 'singing'], 10);
+	  let person3 = new Person('Harry', 'Wilson', 17, 'M', ['programming'], 11);
+
+	  Person.prototype.farewell = function() {
+  		alert(this.name.first + ' has left the building. Bye for now!');
+	  };
+	  person1.farewellTwo = function() {
+  		alert('Bye ' + this.name.first +'!');
+	  };
+    </script>
+</html>

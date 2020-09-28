@@ -1,0 +1,16 @@
+var people = ['Семён', 'Анна', 'Сергей', 'Михаил', 'Георгий', 'Лолита', 'Валентин', 'Людмила', 'Евгения'];
+    
+var admitted = document.querySelector('.admitted');
+var refused = document.querySelector('.refused');
+admitted.textContent = 'Пригласить: ';
+refused.textContent = 'Не приглашать(!): '
+
+for (var i = 0; i < people.length; i++) {
+var name = people[i];
+if (name === 'Георгий' || name === 'Лолита') {
+refused.textContent += name + ', ';}
+
+else {
+admitted.textContent += name + ', ';}
+
+}
